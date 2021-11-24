@@ -1,8 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
-use Simlux\String\StringBuffer;
+use AdrianGreen\String\StringBuffer;
+use function base64_decode;
+use function base64_encode;
+use function urldecode;
+use function urlencode;
 
 class Url extends AbstractExtension
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Simlux\String\Test;
+namespace AdrianGreen\String\Test;
 
-use Simlux\String\Exceptions\UnknownExtensionException;
-use Simlux\String\Exceptions\UnknownMethodException;
-use Simlux\String\Extensions\Loader;
-use Simlux\String\StringBuffer;
+use AdrianGreen\String\Exceptions\UnknownExtensionException;
+use AdrianGreen\String\Exceptions\UnknownMethodException;
+use AdrianGreen\String\Extensions\Loader;
+use AdrianGreen\String\StringBuffer;
 
 class StringBufferTest extends TestCase
 {
@@ -44,8 +44,8 @@ class StringBufferTest extends TestCase
     {
         $this->assertSame('test', StringBuffer::create('test')->toString());
         $this->assertSame('test', StringBuffer::create('test')->__toString());
-        $this->assertInternalType('string', StringBuffer::create('test')->toString());
-        $this->assertInternalType('string', StringBuffer::create('test')->__toString());
+        $this->assertIsString(StringBuffer::create('test')->toString());
+        $this->assertIsString(StringBuffer::create('test')->__toString());
     }
 
     public function testSetString()
@@ -153,7 +153,7 @@ class StringBufferTest extends TestCase
             2 => [
                 'string'    => 'test case',
                 'delimiter' => '_',
-                'expected'  => 'testcase',
+                'expected'  => 'test_case',
             ],
             3 => [
                 'string'    => 'test Case',

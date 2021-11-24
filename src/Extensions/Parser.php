@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
 class Parser extends AbstractExtension
 {
@@ -14,6 +14,6 @@ class Parser extends AbstractExtension
      */
     public function parseCSV(string $string, string $delimiter = ',', string $enclosure = '"', string $escape = '\\'): array
     {
-        return str_getcsv($string, $delimiter, $enclosure, $escape);
+        return \str_getcsv($string, $delimiter, $enclosure, $escape);
     }
 }

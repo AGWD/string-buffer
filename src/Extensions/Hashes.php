@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
-use Simlux\String\StringBuffer;
+use AdrianGreen\String\StringBuffer;
 
 class Hashes extends AbstractExtension
 {
@@ -11,7 +11,7 @@ class Hashes extends AbstractExtension
      */
     public function md5(): StringBuffer
     {
-        $this->string->setString(md5($this->string->toString()));
+        $this->string->setString(\md5($this->string->toString()));
 
         return $this->string;
     }
@@ -21,7 +21,7 @@ class Hashes extends AbstractExtension
      */
     public function sha1(): StringBuffer
     {
-        $this->string->setString(sha1($this->string->toString()));
+        $this->string->setString(\sha1($this->string->toString()));
 
         return $this->string;
     }

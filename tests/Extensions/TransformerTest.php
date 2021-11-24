@@ -1,10 +1,10 @@
 <?php
 
-namespace Simlux\String\Test\Extensions;
+namespace AdrianGreen\String\Test\Extensions;
 
-use Simlux\String\Extensions\Transformer;
-use Simlux\String\StringBuffer;
-use Simlux\String\Test\TestCase;
+use AdrianGreen\String\Extensions\Transformer;
+use AdrianGreen\String\StringBuffer;
+use AdrianGreen\String\Test\TestCase;
 
 class TransformerTest extends TestCase
 {
@@ -63,12 +63,12 @@ class TransformerTest extends TestCase
     public function testToFloat()
     {
         $this->assertSame(1.23, StringBuffer::create('1.23')->toFloat());
-        $this->assertInternalType('float', StringBuffer::create('1.23')->toFloat());
+        $this->assertIsFloat(StringBuffer::create('1.23')->toFloat());
     }
 
     public function testToInteger()
     {
         $this->assertSame(1, StringBuffer::create('1')->toInteger());
-        $this->assertInternalType('int', StringBuffer::create('1.23')->toInteger());
+        $this->assertIsInt(StringBuffer::create('1.23')->toInteger());
     }
 }

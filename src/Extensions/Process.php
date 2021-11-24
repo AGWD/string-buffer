@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
-use Simlux\String\StringBuffer;
+use AdrianGreen\String\StringBuffer;
 
 class Process extends AbstractExtension
 {
@@ -16,9 +16,9 @@ class Process extends AbstractExtension
     public function when(bool $condition, callable $then, callable $else = null): StringBuffer
     {
         if ($condition) {
-            call_user_func_array($then, [$this->string]);
+            $then($this->string);
         } else {
-            call_user_func_array($else, [$this->string]);
+            $else($this->string);
         }
 
         return $this->string;

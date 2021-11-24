@@ -1,6 +1,6 @@
 <?php
 
-namespace Simlux\String\Exceptions;
+namespace AdrianGreen\String\Exceptions;
 
 class UnknownExtensionException extends \Exception
 {

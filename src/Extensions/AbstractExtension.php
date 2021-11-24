@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
-use Simlux\String\StringBuffer;
+use AdrianGreen\String\StringBuffer;
 
 abstract class AbstractExtension
 {
     /**
      * @var StringBuffer
      */
-    protected $string;
+    protected StringBuffer $string;
 
     /**
      * @param StringBuffer $string

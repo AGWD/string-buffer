@@ -1,27 +1,26 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
-use Simlux\String\Exceptions\UnknownExtensionException;
-use Simlux\String\StringBuffer;
+use AdrianGreen\String\{Exceptions\UnknownExtensionException, StringBuffer};
 
 class Loader
 {
-    const EXTENSION_CONVENTION  = 'convention';
-    const EXTENSION_CONDITIONS  = 'conditions';
-    const EXTENSION_HASHES      = 'hashes';
-    const EXTENSION_LISTER      = 'lister';
-    const EXTENSION_MANIPULATOR = 'manipulator';
-    const EXTENSION_PARSER      = 'parser';
-    const EXTENSION_PROPERTIES  = 'properties';
-    const EXTENSION_TRANSFORMER = 'transformer';
-    const EXTENSION_URL         = 'url';
-    const EXTENSION_PROCESS     = 'process';
+    public const EXTENSION_CONVENTION  = 'convention';
+    public const EXTENSION_CONDITIONS  = 'conditions';
+    public const EXTENSION_HASHES      = 'hashes';
+    public const EXTENSION_LISTER      = 'lister';
+    public const EXTENSION_MANIPULATOR = 'manipulator';
+    public const EXTENSION_PARSER      = 'parser';
+    public const EXTENSION_PROPERTIES  = 'properties';
+    public const EXTENSION_TRANSFORMER = 'transformer';
+    public const EXTENSION_URL         = 'url';
+    public const EXTENSION_PROCESS     = 'process';
 
     /**
      * @var array
      */
-    private $classMap = [
+    private array $classMap = [
         self::EXTENSION_CONVENTION  => Convention::class,
         self::EXTENSION_CONDITIONS  => Conditions::class,
         self::EXTENSION_HASHES      => Hashes::class,
@@ -37,17 +36,17 @@ class Loader
     /**
      * @var array
      */
-    protected $extensionCache = [];
+    protected array $extensionCache = [];
 
     /**
      * @var array
      */
-    protected $extensionMethods = [];
+    protected array $extensionMethods = [];
 
     /**
      * @var StringBuffer
      */
-    private $string;
+    private StringBuffer $string;
 
     /**
      * Loader constructor.
@@ -58,7 +57,7 @@ class Loader
     {
         $this->string = $string;
         foreach ($this->classMap as $key => $class) {
-            $this->extensionMethods[ $key ] = get_class_methods($class);
+            $this->extensionMethods[ $key ] = \get_class_methods($class);
         }
     }
 
@@ -70,7 +69,7 @@ class Loader
      */
     public function factory(string $extension): AbstractExtension
     {
-        if (!in_array($extension, array_keys($this->classMap))) {
+        if (!\array_key_exists($extension, $this->classMap)) {
             throw new UnknownExtensionException($extension);
         }
 
@@ -89,7 +88,7 @@ class Loader
      */
     public function extensionHasMethod(string $extension, string $method): bool
     {
-        return in_array($method, $this->extensionMethods[ $extension ]);
+        return \in_array($method, $this->extensionMethods[$extension], true);
     }
 
     /**
@@ -97,6 +96,6 @@ class Loader
      */
     public function getExtensions(): array
     {
-        return array_keys($this->classMap);
+        return \array_keys($this->classMap);
     }
 }

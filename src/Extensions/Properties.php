@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
 class Properties extends AbstractExtension
 {
@@ -9,6 +9,6 @@ class Properties extends AbstractExtension
      */
     public function length(): int
     {
-        return mb_strlen($this->string->toString());
+        return \mb_strlen($this->string->toString());
     }
 }

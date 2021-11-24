@@ -1,8 +1,8 @@
 <?php
 
-namespace Simlux\String\Test;
+namespace AdrianGreen\String\Test;
 
-class TestCase extends \PHPUnit_Framework_TestCase
+class TestCase extends \PHPUnit\Framework\TestCase
 {
 
 }

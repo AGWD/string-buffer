@@ -1,6 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
+
+use function strlen;
+use function strpos;
+use function strtolower;
+use function substr;
 
 class Conditions extends AbstractExtension
 {
@@ -45,10 +50,10 @@ class Conditions extends AbstractExtension
     public function beginsWith(string $string, bool $caseSensitive = true): bool
     {
         if (!$caseSensitive) {
-            return substr(strtolower($this->string->toString()), 0, strlen($string)) === strtolower($string);
+            return stripos($this->string->toString(), strtolower($string)) === 0;
         }
 
-        return substr($this->string->toString(), 0, strlen($string)) === $string;
+        return strpos($this->string->toString(), $string) === 0;
     }
 
     /**
@@ -74,11 +79,11 @@ class Conditions extends AbstractExtension
      *
      * @return bool
      */
-    public function endsWith($string, $caseSensitive = true): bool
+    public function endsWith(string $string, bool $caseSensitive = true): bool
     {
         $length = strlen($string) * -1;
         if (!$caseSensitive) {
-            return substr(strtolower($this->string->toString()), $length) === strtolower($string);
+            return strtolower(substr($this->string->toString(), $length)) === strtolower($string);
         }
 
         return substr($this->string->toString(), $length) === $string;

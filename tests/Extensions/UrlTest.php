@@ -1,9 +1,9 @@
 <?php
 
-namespace Simlux\String\Test\Extensions;
+namespace AdrianGreen\String\Test\Extensions;
 
-use Simlux\String\StringBuffer;
-use Simlux\String\Test\TestCase;
+use AdrianGreen\String\StringBuffer;
+use AdrianGreen\String\Test\TestCase;
 
 class UrlTest extends TestCase
 {

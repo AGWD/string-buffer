@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
-use Simlux\String\StringBuffer;
+use AdrianGreen\String\StringBuffer;
 
 class Transformer extends AbstractExtension
 {
@@ -11,7 +11,7 @@ class Transformer extends AbstractExtension
      */
     public function toLower(): StringBuffer
     {
-        return $this->string->setString(strtolower($this->string->toString()));
+        return $this->string->setString(\strtolower($this->string->toString()));
     }
 
     /**
@@ -19,7 +19,7 @@ class Transformer extends AbstractExtension
      */
     public function toUpper(): StringBuffer
     {
-        return $this->string->setString(strtoupper($this->string->toString()));
+        return $this->string->setString(\strtoupper($this->string->toString()));
     }
 
     /**

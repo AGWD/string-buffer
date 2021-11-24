@@ -1,11 +1,11 @@
 <?php 
 
-namespace Simlux\String\Test\Extensions;
+namespace AdrianGreen\String\Test\Extensions;
 
-use Simlux\String\Exceptions\UnknownExtensionException;
-use Simlux\String\Extensions\Loader;
-use Simlux\String\StringBuffer;
-use Simlux\String\Test\TestCase;
+use AdrianGreen\String\Exceptions\UnknownExtensionException;
+use AdrianGreen\String\Extensions\Loader;
+use AdrianGreen\String\StringBuffer;
+use AdrianGreen\String\Test\TestCase;
 
 class LoaderTest extends TestCase
 {

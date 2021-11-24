@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String\Extensions;
+namespace AdrianGreen\String\Extensions;
 
 class Lister extends AbstractExtension
 {
@@ -11,7 +11,7 @@ class Lister extends AbstractExtension
      */
     public function split(string $delimiter): array
     {
-        return explode($delimiter, $this->string->toString());
+        return \explode($delimiter, $this->string->toString());
     }
 
     /**
@@ -21,12 +21,12 @@ class Lister extends AbstractExtension
      */
     public function splitUppercase(bool $strToLower = false): array
     {
-        $parts = array_filter(preg_split('/(?=[A-Z])/', $this->string->toString()));
+        $parts = \array_filter(\preg_split('/(?=[A-Z])/', $this->string->toString()));
 
         if ($strToLower) {
-            $parts = array_map('strtolower', $parts);
+            $parts = \array_map('strtolower', $parts);
         }
 
-        return array_values($parts);
+        return \array_values($parts);
     }
 }

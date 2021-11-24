@@ -1,10 +1,10 @@
 <?php
 
-namespace Simlux\String\Test\Extensions;
+namespace AdrianGreen\String\Test\Extensions;
 
-use Simlux\String\Extensions\Conditions;
-use Simlux\String\StringBuffer;
-use Simlux\String\Test\TestCase;
+use AdrianGreen\String\Extensions\Conditions;
+use AdrianGreen\String\StringBuffer;
+use AdrianGreen\String\Test\TestCase;
 
 class HashesTest extends TestCase
 {

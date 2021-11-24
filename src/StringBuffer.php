@@ -1,16 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Simlux\String;
+namespace AdrianGreen\String;
 
-use Simlux\String\Exceptions\UnknownMethodException;
-use Simlux\String\Extensions\Loader;
+use AdrianGreen\String\{Exceptions\UnknownMethodException, Extensions\Loader};
 
 /**
  * Class StringBuffer
  *
- * @package Simlux\StringBuffer
+ * @package AdrianGreen\StringBuffer
  *
- **** from Conditions
+ * @see \AdrianGreen\String\Extensions\Conditions
  * @method bool contains(string $string, bool $caseSensitive = false)
  * @method bool containsOneOf(array $strings, bool $caseSensitive = false)
  * @method bool beginsWith(string $string, bool $caseSensitive = true)
@@ -20,30 +19,30 @@ use Simlux\String\Extensions\Loader;
  * @method bool equals(string $string, bool $caseSensitive = true)
  * @method bool isOneOf(array $strings, bool $caseSensitive = true)
  *
- **** from Convention
+ * @see \AdrianGreen\String\Extensions\Convention
  * @method StringBuffer camelCase(bool $ucFirst = false)
  * @method StringBuffer snakeCase(string $delimiter = '_')
  * @method StringBuffer ucFirst()
  * @method StringBuffer lcFirst()
  * @method StringBuffer ucWords()
  *
- **** from Parser
+ * @see \AdrianGreen\String\Extensions\Parser
  * @method array parseCSV(string $string, string $delimiter = ',', string $enclosure = '"', string $escape = '\\')
  *
- **** from Properties
+ * @see \AdrianGreen\String\Extensions\Properties
  * @method int length()
  *
- * // from StringTransformer
+ * @see \AdrianGreen\String\Extensions\StringTransformer
  * @method StringBuffer toLower()
  * @method StringBuffer toUpper()
  * @method float toFloat()
  * @method int toInteger()
  *
- **** from Lister
+ * @see \AdrianGreen\String\Extensions\Lister
  * @method array split(string $delimiter)
  * @method array splitUppercase(bool $strToLower = false)
  *
- **** from Manipulator
+ * @see \AdrianGreen\String\Extensions\Manipulator
  * @method StringBuffer trim(string $charList = " \t\n\r\0\x0B")
  * @method StringBuffer trimLeft(string $charList = " \t\n\r\0\x0B")
  * @method StringBuffer trimRight(string $charList = " \t\n\r\0\x0B")
@@ -52,14 +51,14 @@ use Simlux\String\Extensions\Loader;
  * @method StringBuffer replace(string|array $search, string|array $replace, bool $caseSensitive = true): StringBuffer
  * @method StringBuffer remove(string|array $string, bool $caseSensitive = true)
  *
- **** from Hashes
+ * @see \AdrianGreen\String\Extensions\Hashes
  * @method StringBuffer md5()
  * @method StringBuffer sha1()
  *
- **** from Process
+ * @see \AdrianGreen\String\Extensions\Process
  * @method StringBuffer when(bool $condition, callable $then, callable $else = null)
  *
- **** from Url
+ * @see \AdrianGreen\String\Extensions\Url
  * @method StringBuffer urlEncode()
  * @method StringBuffer urlDecode()
  * @method StringBuffer base64Encode()
@@ -70,12 +69,12 @@ class StringBuffer
     /**
      * @var string
      */
-    private $string;
+    private string $string;
 
     /**
      * @var Loader
      */
-    private $loader;
+    private Loader $loader;
 
     /**
      * StringBuffer constructor.
@@ -109,7 +108,7 @@ class StringBuffer
     {
         foreach ($this->loader->getExtensions() as $extension) {
             if ($this->loader->extensionHasMethod($extension, $name)) {
-                return call_user_func_array([$this->loader->factory($extension), $name], $arguments);
+                return \call_user_func_array([$this->loader->factory($extension), $name], $arguments);
             }
         }
 
@@ -167,10 +166,10 @@ class StringBuffer
     {
         if ($condition) {
             return $this->append($string);
-        } else {
-            if (!is_null($else)) {
-                return $this->append($else);
-            }
+        }
+
+        if (!is_null($else)) {
+            return $this->append($else);
         }
 
         return $this;
@@ -199,10 +198,10 @@ class StringBuffer
     {
         if ($condition) {
             return $this->prepend($string);
-        } else {
-            if (!is_null($else)) {
-                return $this->prepend($else);
-            }
+        }
+
+        if (!is_null($else)) {
+            return $this->prepend($else);
         }
 
         return $this;
@@ -217,9 +216,9 @@ class StringBuffer
     public function substring(int $start, int $length = null): StringBuffer
     {
         if (is_null($length)) {
-            $this->string = substr($this->string, $start);
+            $this->string = \substr($this->string, $start);
         } else {
-            $this->string = substr($this->string, $start, $length);
+            $this->string = \substr($this->string, $start, $length);
         }
 
         return $this;
@@ -233,10 +232,10 @@ class StringBuffer
     public function reverse(bool $utf8 = false): StringBuffer
     {
         if ($utf8) {
-            preg_match_all('/./us', $this->string, $matches);
-            $this->string = join('', array_reverse($matches[0]));
+            \preg_match_all('/./us', $this->string, $matches);
+            $this->string = \implode('', \array_reverse($matches[0]));
         } else {
-            $this->string = strrev($this->string);
+            $this->string = \strrev($this->string);
         }
 
         return $this;
