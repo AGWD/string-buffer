@@ -1,11 +1,11 @@
 # StringBuffer
-Manipulate strings object oriented.
+Manipulate strings similarly to Java StringBuffer.
 
 ## Installation
 The preferred method of installation is via Packagist and Composer. Run the following command to install the package and add it as a requirement to your project's composer.json:
 
 ```
-composer require simlux/string-buffer
+composer require adriangreen/string-buffer
 ```
 
 ## Examples

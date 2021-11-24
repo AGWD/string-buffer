@@ -1,6 +1,6 @@
 {
     "name": "adriangreen/string-buffer",
-    "description": "Handle strings object oriented.",
+    "description": "Handle strings similarly to Java StringBuffer.",
     "type": "library",
     "keywords": ["php", "string"],
     "homepage": "https://github.com/agwd/string-buffer",
