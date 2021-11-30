@@ -35,5 +35,8 @@
     },
     "autoload-dev": {
         "psr-4": {"AdrianGreen\\String\\Test\\": "tests/"}
+    },
+    "scripts": {
+        "tests-with-clover-xdebug": "php -dxdebug.mode=coverage vendor/bin/phpunit "
     }
 }

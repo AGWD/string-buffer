@@ -10,31 +10,6 @@ use AdrianGreen\String\StringBuffer;
 class StringBufferTest extends TestCase
 {
 
-    public function testThatGetExtensionsThrowsException()
-    {
-        $this->markTestSkipped();
-
-        $this->expectException(UnknownExtensionException::class);
-        $this->expectExceptionMessage('foobar');
-
-
-        $buffer         = new StringBuffer('test');
-        $loader         = new Loader($buffer);
-        $loaderRef      = new \ReflectionClass($loader);
-        $extensionsProp = $loaderRef->getProperty('extensionMethods');
-        $extensionsProp->setAccessible(true);
-        $extensions           = $extensionsProp->getValue($loaderRef);
-        $extensions['foobar'] = ['foobar'];
-        $extensionsProp->setValue($loader, $extensions);
-
-        $bufferRef  = new \ReflectionClass($buffer);
-        $loaderProp = $bufferRef->getProperty('loader');
-        $loaderProp->setAccessible(true);
-        $loaderProp->setValue($buffer, $loader);
-
-        $buffer->foobar();
-    }
-
     public function testCreateFactory()
     {
         $this->assertInstanceOf(StringBuffer::class, StringBuffer::create(''));
