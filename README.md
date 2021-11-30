@@ -1,6 +1,6 @@
 # StringBuffer
 
-![GitHub release (release name instead of tag name)](https://img.shields.io/github/v/release/AGWD/string-buffer) 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/AGWD/string-buffer)
 
 Manipulate strings similarly to Java StringBuffer.
 
